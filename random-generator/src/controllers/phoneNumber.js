@@ -1,4 +1,4 @@
-import { maxPhoneNumberQuantity, minPhoneNumber, maxPossiblePhoneNumber } from '../helpers/constants';
+import { minPossiblePhoneNumber, maxPossiblePhoneNumber } from '../helpers/constants';
 
 /**
  * @description - PhoneNumber generator class
@@ -7,19 +7,17 @@ import { maxPhoneNumberQuantity, minPhoneNumber, maxPossiblePhoneNumber } from '
 
 class PhoneNumberGenerator {
   /**
+   * @param {number} number
   * @returns {Object} GenerateRandomPhoneNumbers
-  * @param {number} number
-  * @returns {Array}
   */
   static GenerateRandomPhoneNumbers = (number) => {
       const GeneratedRandomPhoneNumbers = [];
       while(GeneratedRandomPhoneNumbers.length() < number  ) {
-        GeneratedRandomPhoneNumbers.push(`0${Math.floor(minPhoneNumber + Math.random() * maxPossiblePhoneNumber)}`)
+        GeneratedRandomPhoneNumbers.push(`0${Math.floor(minPossiblePhoneNumber + Math.random() * maxPossiblePhoneNumber)}`)
       }
   }
 
   /**
-  * @returns {Object} maximum number in generated numbers
   * @param {number} GeneratedRandomPhoneNumbers
   * @returns {Array}
   */
@@ -28,11 +26,26 @@ class PhoneNumberGenerator {
   }
 
   /**
-  * @returns {Object} Minimum number in generated numbers
-  * @param {number} GeneratedRandomPhoneNumbers
-  * @returns {Array}
+   * @param {number} GeneratedRandomPhoneNumbers
+  * @returns {Array} - getMaxGenNumber
   */
-  static getMaxGenNumber = (GeneratedRandomPhoneNumbers) => {
+  static getMinGenNumber = (GeneratedRandomPhoneNumbers) => {
       return Math.min(...GeneratedRandomPhoneNumbers);
+  }
+
+  /**
+  * @param {number} numbers in ascending order
+  * @returns {Array} - sortAscending
+  */
+  static sortAscending = (numbers) => {
+      return numbers.sort((a,b) => (a-b));
+  }
+
+  /**
+  * @param {number} numbers in descending order
+  * @returns {Array} - sortDescending
+  */
+  static sortDescending = (numbers) => {
+    return numbers.sort((a,b) => (b-a)); 
   }
 }
