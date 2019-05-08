@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
-import PhoneNumberGenerator from '../../src/controllers/phoneNumber';
+import React from 'react';
+import PhoneNumberGenerator from '../../src/controller/phoneNumber';
 import fileDownload from 'js-file-download';
+
+import Button from './Button';
+import Input from './inputField'
+
+import './RandomGenerator.scss'
 
 
 const { GenerateRandomPhoneNumbers, getMaxGenNumber, getMinGenNumber, sortInAscending, sortInDescending } = PhoneNumberGenerator;
@@ -15,11 +20,6 @@ class GeneratePhoneNumber extends React.Component {
       minNum: '',
       sortOrder: 'ascending'
     };
-  }
-
-
-  componentDidMount() {
-
   }
 
   onSortChange = event => {
@@ -38,22 +38,27 @@ class GeneratePhoneNumber extends React.Component {
   }
 
   onGenerateRandomNumbersClick = (event) => {
-      event.preventDefault();
+    event.preventDefault();
     const { generatedQuantity, sortOrder } = this.state
     const RandomNumbers = GenerateRandomPhoneNumbers(generatedQuantity)
     const sortedNumbers = sortOrder === 'ascending' ? sortInAscending(RandomNumbers) : sortInDescending(RandomNumbers)
     this.setState({ numbers: sortedNumbers })
   }
-  
+
   onclickDownload = () => {
     const data = this.state.numbers;
     fileDownload(data, 'filename.csv');
   }
-  
 
 
   render() {
-    // console.log(this.state.numbers);
+
+    const { numbers } = this.state;
+    const { onInputChange, onGenerateRandomNumbersClick, onclickDownload, onSortChange } = this;
+
+    const listRandomNumbers = (numbers || []).map(item => (
+      <li listStyle="none" key={item}>{`${numbers.indexOf(item) + 1}`}:{item}</li>
+    ))
 
     return (
       <div className="App">
@@ -65,61 +70,46 @@ class GeneratePhoneNumber extends React.Component {
               target=""
               rel=""
             >
-              Random PhoneNumberGenerator Generator
+              Random Phone Number Generator Generator
         </label>
           </p>
         </header>
-
         <div>
           <form >
-
-            <input
-              className=""
-              type="number"
-              // name="title"
-              placeholder="Enter quantity of number you want to generate"
-              value={this.generatedQuantity}
-              onChange={this.onInputChange}
+            <Input
+              type='number'
+              classes='text-input'
+              name=''
+              placeholder='Enter the quantity of number you want to generate'
+              onChange={onInputChange}
             />
-
-            <button
-              className=""
-              type="submit"
-              // value=""
-              // name=""
-              onClick={this.onGenerateRandomNumbersClick}
-            >
-              Generate PhoneNumbers
-            </button>
-            <button
-              className=""
-              type="submit"
-              // value=""
-              // name=""
-              onClick={this.onclickDownload}
-            >
-              download
-            </button>
-            <select onChange={this.onSortChange}>
+            <Button
+              classes='btn-generate-random-numbers'
+              type='submit'
+              onclick={onGenerateRandomNumbersClick}
+              name='Generate PhoneNumbers'
+            />
+            <Button
+              classes='btn-download-random-numbers'
+              type='submit'
+              onclick={onclickDownload}
+              name='download'
+            />
+            <select onChange={onSortChange}>
               <option value="ascending">Sort in ascending order</option>
               <option value="descending">Sort in descending order</option>
             </select>
             <p>
-              <label>Max Number: {`0${getMaxGenNumber(this.state.numbers)}`}</label>
-              <br/>
-              <label>Min Number: {`0${getMinGenNumber(this.state.numbers)}`}</label>
+              <label className="max-num">Max Number: {`0${getMaxGenNumber(numbers)}`}</label>
+              <label className="min-num">Min Number: {`0${getMinGenNumber(numbers)}`}</label>
             </p>
 
           </form>
           <div>
-        <ul>
-          {(this.state.numbers || []).map(item => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-
+            <ul>
+              {listRandomNumbers}
+            </ul>
+          </div>
         </div>
       </div>
     );
