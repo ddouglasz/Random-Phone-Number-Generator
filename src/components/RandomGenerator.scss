@@ -1,3 +1,89 @@
-.max-num {
-    margin: 40px;
+.home-page-body{
+  display: flex;
+  flex-direction: column 1 3;
+  justify-content: flex-start;
+  // background-color:   #808113;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/wood.jpg");
+  opacity: 0.8;
+  height: 90vh;
+  color: #ffff;
+
+  .form-boby  {
+    margin: auto;
+    form {
+      text-align:  center;
+      display: grid;
+      justify-items: center;
+    }
+  }
+
+  .text-input {
+    height: 2.5rem;
+    width: 20rem;
+    border-radius: 6px;
+    outline: none;
+    padding: 4px;
+    color: #ffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+
+  .btn-homepage {
+    height: 2.5rem;
+    box-shadow: 0 .4rem 4.0rem 0 rgba(0, 0, 0, 0.25);
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #ffff;
+    outline: none;
+    margin: 8px;
+    cursor: pointer;
+    // background-color:  #135BFF;
+  }
+  
+  .btn-download-random-numbers {
+    background: green;
+  }
+  
+  .btn-generate-random-numbers {
+    background-color:  #135BFF;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+
+  .sort-options {
+    height: 2.5rem;
+    cursor: pointer;
+    outline: none;
+    color: #ffff;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+  
+  .number-table-body {
+    overflow: scroll;
+    overflow: scroll;
+    width: 40rem;
+    height: 40rem;
+    text-align: center;
+    margin: auto;
+    background-color:  #000000;
+    opacity: 0.8;
+    border-radius: 4px;
+    box-shadow: 0 0.4rem 4rem 0 rgba(0, 2, 1, 1);
+    padding: 5px;
+  }
+
+  .random-table {
+    margin: auto;
+    td {
+      border: 1px solid #f31129;
+    }
+  }
+
+  .min-max {
+    display: grid;
+    flex-direction: row;
+    justify-content: baseline;
+    height: 34px;
+
+  }
 }
+

@@ -56,59 +56,66 @@ class GeneratePhoneNumber extends React.Component {
     const { numbers } = this.state;
     const { onInputChange, onGenerateRandomNumbersClick, onclickDownload, onSortChange } = this;
 
-    const listRandomNumbers = (numbers || []).map(item => (
-      <li listStyle="none" key={item}>{`${numbers.indexOf(item) + 1}`}:{item}</li>
+    const randomNumbersTable = (numbers || []).map(item => (
+      <tr><td key={item}>{`${numbers.indexOf(item) + 1}`}</td> <td>{item}</td></tr>
     ))
 
     return (
       <div className="App">
         <header className="App-header">
           <p>
-            <label
-              className=""
-              href="#"
-              target=""
-              rel=""
-            >
-              Random Phone Number Generator Generator
+        <label
+          className=""
+          href="#"
+          target=""
+          rel=""
+        >
+          Random Phone Number Generator Generator
         </label>
           </p>
         </header>
-        <div>
-          <form >
-            <Input
-              type='number'
-              classes='text-input'
-              name=''
-              placeholder='Enter the quantity of number you want to generate'
-              onChange={onInputChange}
-            />
-            <Button
-              classes='btn-generate-random-numbers'
-              type='submit'
-              onclick={onGenerateRandomNumbersClick}
-              name='Generate PhoneNumbers'
-            />
-            <Button
-              classes='btn-download-random-numbers'
-              type='submit'
-              onclick={onclickDownload}
-              name='download'
-            />
-            <select onChange={onSortChange}>
-              <option value="ascending">Sort in ascending order</option>
-              <option value="descending">Sort in descending order</option>
-            </select>
-            <p>
-              <label className="max-num">Max Number: {`0${getMaxGenNumber(numbers)}`}</label>
-              <label className="min-num">Min Number: {`0${getMinGenNumber(numbers)}`}</label>
-            </p>
-
-          </form>
-          <div>
-            <ul>
-              {listRandomNumbers}
-            </ul>
+        <div className='home-page-body'>
+          <div className='form-boby'>
+            <form >
+              <Input
+                type='number'
+                classes='text-input'
+                name=''
+                placeholder='Enter the quantity of numbers you want to generate'
+                onChange={onInputChange}
+              />
+              <Button
+                classes='btn-generate-random-numbers btn-homepage'
+                type='submit'
+                onclick={onGenerateRandomNumbersClick}
+                name='Generate PhoneNumbers'
+              />
+              <select onChange={onSortChange} className="sort-options">
+                <option value="ascending">Sort in ascending order</option>
+                <option value="descending">Sort in descending order</option>
+              </select>
+              <p>
+                <div className="min-max">
+                  <label className="max-num">Max Number: {`0${getMaxGenNumber(numbers)}`}</label>
+                  <label className="min-num">Min Number: {`0${getMinGenNumber(numbers)}`}</label>
+                </div>
+              </p>
+            </form>
+          </div>
+          <div className='number-table-body'>
+          <Button
+                classes='btn-download-random-numbers btn-homepage'
+                type='submit'
+                onclick={onclickDownload}
+                name='download'
+              />
+            <table className="random-table">
+              <tr >
+                <th>Serial Number</th>
+                <th>Random Numbers</th>
+              </tr>
+              {randomNumbersTable}
+            </table>
           </div>
         </div>
       </div>

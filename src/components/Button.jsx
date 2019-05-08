@@ -6,7 +6,7 @@ const Button = ({
   disabled,
   submit = false,
   name,
-  onclick
+  onclick,
 }) => {
   return (
     <button
