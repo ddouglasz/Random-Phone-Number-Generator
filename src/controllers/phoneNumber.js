@@ -12,9 +12,10 @@ class PhoneNumberGenerator {
   */
   static GenerateRandomPhoneNumbers = (number) => {
       const GeneratedRandomPhoneNumbers = [];
-      while(GeneratedRandomPhoneNumbers.length() < number  ) {
+      for(let i=0; i < number; i++  ) {
         GeneratedRandomPhoneNumbers.push(`0${Math.floor(minPossiblePhoneNumber + Math.random() * maxPossiblePhoneNumber)}`)
       }
+      return  GeneratedRandomPhoneNumbers;
   }
 
   /**
@@ -37,7 +38,7 @@ class PhoneNumberGenerator {
   * @param {number} numbers in ascending order
   * @returns {Array} - sortAscending
   */
-  static sortAscending = (numbers) => {
+  static sortInAscending = (numbers) => {
       return numbers.sort((a,b) => (a-b));
   }
 
@@ -45,7 +46,9 @@ class PhoneNumberGenerator {
   * @param {number} numbers in descending order
   * @returns {Array} - sortDescending
   */
-  static sortDescending = (numbers) => {
+  static sortInDescending = (numbers) => {
     return numbers.sort((a,b) => (b-a)); 
   }
 }
+
+export default PhoneNumberGenerator;
