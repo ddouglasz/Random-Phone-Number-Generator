@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PhoneNumberGenerator from '../../src/controllers/phoneNumber';
+import fileDownload from 'js-file-download';
+
 
 const { GenerateRandomPhoneNumbers, getMaxGenNumber, getMinGenNumber, sortInAscending, sortInDescending } = PhoneNumberGenerator;
 
@@ -43,6 +45,13 @@ class GeneratePhoneNumber extends React.Component {
     this.setState({ numbers: sortedNumbers })
   }
   
+  onclickDownload = () => {
+    const data = this.state.numbers;
+    fileDownload(data, 'filename.csv');
+  }
+  
+
+
   render() {
     // console.log(this.state.numbers);
 
@@ -81,6 +90,15 @@ class GeneratePhoneNumber extends React.Component {
               onClick={this.onGenerateRandomNumbersClick}
             >
               Generate PhoneNumbers
+            </button>
+            <button
+              className=""
+              type="submit"
+              // value=""
+              // name=""
+              onClick={this.onclickDownload}
+            >
+              download
             </button>
             <select onChange={this.onSortChange}>
               <option value="ascending">Sort in ascending order</option>
