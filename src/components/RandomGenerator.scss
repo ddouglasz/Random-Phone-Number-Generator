@@ -22,14 +22,21 @@
     }
   }
 
-  .text-input {
+  .input-number-text {
+    font-size: 1.1rem;
     height: 2.5rem;
-    width: auto;
-    border-radius: 6px;
-    outline: none;
-    padding: 4px;
+    width: 12rem;
+    border-radius: 0.6rem;
     color: #ffff;
+    outline: none;
+    padding: 0 4px;
+    border: 0.5px solid;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  }
+
+  .error-message-class {
+    color: #f31129;
+    font-size: 0.8rem;
   }
 
   .btn-homepage {
@@ -40,9 +47,8 @@
     font-weight: normal;
     color: #ffff;
     outline: none;
-    margin: 8px;
+    margin: 1rem 0;
     cursor: pointer;
-    // background-color:  #135BFF;
   }
   
   .btn-download-random-numbers {
@@ -60,8 +66,10 @@
   .sort-options {
     height: 2.5rem;
     cursor: pointer;
+    width: -webkit-fill-available;
     outline: none;
     color: #ffff;
+    border-radius: 0.6rem;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   }
   
@@ -70,7 +78,6 @@
     width: 40rem;
     @media screen and (max-width: 750px) {
       width: fit-content;
-      // margin: 0 0 3px 1px;
     }
     height: 80vh;
     text-align: center;
@@ -99,7 +106,6 @@
       padding: 1rem 2rem;
       background-color: #282c34;
       border: 1px solid #265966;
-      ;
     }
     td {
       border: 1px solid #f31129;
@@ -111,7 +117,6 @@
     flex-direction: row;
     justify-content: baseline;
     height: 34px;
-
   }
 }
 

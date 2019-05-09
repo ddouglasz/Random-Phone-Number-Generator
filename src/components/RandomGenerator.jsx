@@ -8,17 +8,27 @@ import Input from './inputField'
 import './RandomGenerator.scss'
 
 
-const { GenerateRandomPhoneNumbers, getMaxGenNumber, getMinGenNumber, sortInAscending, sortInDescending } = PhoneNumberGenerator;
+const {
+  GenerateRandomPhoneNumbers,
+  getMaxGenNumber,
+  getMinGenNumber,
+  sortInAscending,
+  sortInDescending
+} = PhoneNumberGenerator;
 
 class GeneratePhoneNumber extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       numbers: [],
-      generatedQuantity: 0,
+      generatedQuantity: '',
       maxNum: '',
       minNum: '',
-      sortOrder: 'ascending'
+      sortOrder: 'ascending',
+      error: '',
+      disabled: false,
+      displaystate: 'none',
+      errorMessage: '',
     };
   }
 
@@ -34,7 +44,26 @@ class GeneratePhoneNumber extends React.Component {
   onInputChange = event => {
     event.preventDefault();
     const { value } = event.target
-    !isNaN(value) && this.setState({ generatedQuantity: value })
+    if (isNaN(value)) {
+      this.setState({
+        error: 'error-message-class',
+        displaystate: 'block',
+        disabled: true,
+        errorMessage: 'Please enter a valid number'
+      })
+    } else if (value > 10000) {
+      this.setState({
+        error: 'error-message-class',
+        displaystate: 'block', disabled: true,
+        errorMessage: 'Sorry, quantity is limited to 10,000'
+      })
+    } else {
+      this.setState({
+        generatedQuantity: value,
+        displaystate: 'none',
+        disabled: false
+      })
+    }
   }
 
   onGenerateRandomNumbersClick = (event) => {
@@ -53,8 +82,20 @@ class GeneratePhoneNumber extends React.Component {
 
   render() {
 
-    const { numbers } = this.state;
-    const { onInputChange, onGenerateRandomNumbersClick, onclickDownload, onSortChange } = this;
+    const {
+      numbers,
+      error,
+      disabled,
+      displaystate,
+      errorMessage
+    } = this.state;
+
+    const {
+      onInputChange,
+      onGenerateRandomNumbersClick,
+      onclickDownload,
+      onSortChange
+    } = this;
 
     const randomNumbersTable = (numbers || []).map(item => (
       <tr><td key={item}>{`${numbers.indexOf(item) + 1}`}</td> <td>{item}</td></tr>
@@ -64,32 +105,35 @@ class GeneratePhoneNumber extends React.Component {
       <div className="App">
         <header className="App-header">
           <p>
-        <label
-          className=""
-          href="#"
-          target=""
-          rel=""
-        >
-          Random Phone Number Generator Generator
+            <label
+              className=""
+              href="#"
+              target=""
+              rel=""
+            >
+              Random Phone Number Generator Generator
         </label>
           </p>
         </header>
-        
         <div className='home-page-body'>
           <div className='form-boby'>
             <form >
               <Input
-                type='number'
-                classes='text-input'
+                type='text'
+                classes='input-number-text'
                 name=''
-                placeholder='Enter the quantity of numbers you want to generate'
+                placeholder='Enter a Number here'
                 onChange={onInputChange}
               />
+              <div className={error} style={{ display: displaystate }}>
+                <span>{errorMessage}</span>
+              </div>
               <Button
                 classes='btn-generate-random-numbers btn-homepage'
                 type='submit'
                 onclick={onGenerateRandomNumbersClick}
                 name='Generate PhoneNumbers'
+                disabled={disabled}
               />
               <select onChange={onSortChange} className="sort-options">
                 <option value="ascending">Sort in ascending order</option>
@@ -104,20 +148,20 @@ class GeneratePhoneNumber extends React.Component {
             </form>
           </div>
           <div className='number-table-body'>
-          <Button
-                classes='btn-download-random-numbers btn-homepage'
-                type='submit'
-                onclick={onclickDownload}
-                name='download'
-              />
+            <Button
+              classes='btn-download-random-numbers btn-homepage'
+              type='submit'
+              onclick={onclickDownload}
+              name='Download'
+            />
             <table className="random-table">
               <div className="scroll">
-              <tr >
-                <th>Serial Number</th>
-                <th>Phone Numbers</th>
-              </tr>
-              {randomNumbersTable}
-            </div>
+                <tr >
+                  <th>Serial Number</th>
+                  <th>Phone Numbers</th>
+                </tr>
+                {randomNumbersTable}
+              </div>
             </table>
           </div>
         </div>
@@ -127,5 +171,3 @@ class GeneratePhoneNumber extends React.Component {
 }
 
 export default GeneratePhoneNumber;
-
-//TODO: 1. validation 2. position buttons.
