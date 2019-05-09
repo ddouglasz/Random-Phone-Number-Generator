@@ -74,6 +74,7 @@ class GeneratePhoneNumber extends React.Component {
         </label>
           </p>
         </header>
+        
         <div className='home-page-body'>
           <div className='form-boby'>
             <form >
@@ -110,11 +111,13 @@ class GeneratePhoneNumber extends React.Component {
                 name='download'
               />
             <table className="random-table">
+              <div className="scroll">
               <tr >
                 <th>Serial Number</th>
-                <th>Random Numbers</th>
+                <th>Phone Numbers</th>
               </tr>
               {randomNumbersTable}
+            </div>
             </table>
           </div>
         </div>
@@ -124,3 +127,5 @@ class GeneratePhoneNumber extends React.Component {
 }
 
 export default GeneratePhoneNumber;
+
+//TODO: 1. validation 2. position buttons.
