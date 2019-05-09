@@ -1,12 +1,12 @@
 .home-page-body{
   display: flex;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 750px) {
     display: grid;
     height: auto;
+    justify-content: space-evenly;
   }
   flex-direction: column 1 3;
   justify-content: flex-start;
-  // background-color:   #808113;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/wood.jpg");
   opacity: 0.8;
   height: 90vh;
@@ -18,6 +18,7 @@
       text-align:  center;
       display: grid;
       justify-items: center;
+      margin: 2px 0;
     }
   }
 
@@ -67,9 +68,9 @@
   .number-table-body {
     overflow: hidden;
     width: 40rem;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 750px) {
       width: fit-content;
-      margin: 0 0 3px 1px;
+      // margin: 0 0 3px 1px;
     }
     height: 80vh;
     text-align: center;
@@ -95,11 +96,13 @@
       position: sticky;
       position: -webkit-sticky; /* Safari */
       top: 0;
-      padding: 2rem;
+      padding: 1rem 2rem;
+      background-color: #282c34;
+      border: 1px solid #265966;
+      ;
     }
     td {
       border: 1px solid #f31129;
-      margin-top: 20px;
     }
   }
 
