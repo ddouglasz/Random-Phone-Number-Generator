@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GeneratePhoneNumber from './components/RandomGenerator.jsx'
+import GeneratePhoneNumber from './pages/RandomGenerator.jsx'
 import './App.css';
 
 class App extends Component {

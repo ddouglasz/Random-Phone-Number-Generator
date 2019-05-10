@@ -1,3 +1,9 @@
+[![Coverage Status](https://coveralls.io/repos/github/ddouglasz/Random-Phone-Number-Generator/badge.svg?branch=master)](https://coveralls.io/github/ddouglasz/Random-Phone-Number-Generator?branch=master)
+[![Build Status](https://travis-ci.org/ddouglasz/Random-Phone-Number-Generator.svg?branch=master)](https://travis-ci.org/ddouglasz/Random-Phone-Number-Generator)
+
+
+
+
 # Random-Phone-Number-Generator
 A simple react application that generates a  set of phone numbers randomly.
 
@@ -29,6 +35,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
+
 
 
 

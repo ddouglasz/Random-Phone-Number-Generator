@@ -1,9 +1,9 @@
 import React from 'react';
-import PhoneNumberGenerator from '../../src/controller/phoneNumber';
+import PhoneNumberGenerator from '../controller/phoneNumber';
 import fileDownload from 'js-file-download';
 
-import Button from './Button';
-import Input from './inputField'
+import Button from '../components/buttons/Button';
+import Input from '../components/inputField/InputField'
 
 import './RandomGenerator.scss'
 
@@ -121,7 +121,7 @@ class GeneratePhoneNumber extends React.Component {
               <Input
                 type='text'
                 classes='input-number-text'
-                name=''
+                name='input'
                 placeholder='Enter a Number here'
                 onChange={onInputChange}
               />
@@ -156,7 +156,7 @@ class GeneratePhoneNumber extends React.Component {
             />
             <table className="random-table">
               <div className="scroll">
-                <tr >
+                <tr>
                   <th>Serial Number</th>
                   <th>Phone Numbers</th>
                 </tr>

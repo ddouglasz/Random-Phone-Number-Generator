@@ -1,7 +1,7 @@
 // react libraries
 import React from 'react'
 
-const InputBox = ({
+const Input = ({
   type,
   placeholder,
   value,
@@ -37,4 +37,4 @@ const InputBox = ({
   )
 }
 
-export default InputBox
+export default Input
