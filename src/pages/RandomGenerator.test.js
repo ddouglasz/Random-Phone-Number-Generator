@@ -55,12 +55,14 @@ describe('RandomGenerator', () => {
     action.onGenerateRandomNumbersClick(event);
     expect(onGenerateRandomNumbersClick).toBeCalled();
   });
-  // it('should call onclickDownload function', () => {
-  //   const wrapper = setup();
-  //   const action = wrapper.instance();
-  //   const onclickDownload = jest.spyOn(wrapper.instance(), 'onclickDownload');
-  //   action.onclickDownload();
-  //   expect(onclickDownload).toBeCalled();
-  // });
+  it('should call onclickDownload function', () => {
+    const wrapper = setup();
+    window.URL.createObjectURL = jest.fn();
+    window.URL.revokeObjectURL = jest.fn();
+    const action = wrapper.instance();
+    const onclickDownload = jest.spyOn(wrapper.instance(), 'onclickDownload');
+    action.onclickDownload();
+    expect(onclickDownload).toBeCalled();
+  });
 })
 
