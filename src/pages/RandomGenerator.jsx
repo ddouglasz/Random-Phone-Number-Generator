@@ -153,13 +153,13 @@ class GeneratePhoneNumber extends React.Component {
               name='Download'
             />
             <table className="random-table">
-              {/* <div className="scroll"> */}
-                {/* <tr> */}
-                  {/* <th>Serial Number</th>
-                  <th>Phone Numbers</th> */}
-                {/* </tr> */}
+              <div className="scroll">
+                <tr>
+                  <th>Serial Number</th>
+                  <th>Phone Numbers</th>
+                </tr>
                 {randomNumbersTable}
-              {/* </div> */}
+              </div>
             </table>
           </div>
         </div>
