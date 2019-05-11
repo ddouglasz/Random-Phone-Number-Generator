@@ -26,7 +26,7 @@ const event = {
 describe('RandomGenerator', () => {
   it('should render page components successfully', () => {
     const wrapper = setup()
-    expect(wrapper.find('div').length).toBe(7)
+    expect(wrapper.find('div').length).toBe(6)
     expect(wrapper.find('label').length).toBe(3)
     expect(wrapper.find('select').length).toBe(1)
     expect(wrapper.find('table').length).toBe(1)
