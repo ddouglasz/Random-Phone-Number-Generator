@@ -139,12 +139,10 @@ class GeneratePhoneNumber extends React.Component {
                 <option value="ascending">Sort in ascending order</option>
                 <option value="descending">Sort in descending order</option>
               </select>
-              <p>
                 <div className="min-max">
                   <label className="max-num">Max Number: {`0${getMaxGenNumber(numbers)}`}</label>
                   <label className="min-num">Min Number: {`0${getMinGenNumber(numbers)}`}</label>
                 </div>
-              </p>
             </form>
           </div>
           <div className='number-table-body'>
