@@ -24,7 +24,7 @@ The application should be able to sort the set of random numbers in ascending or
 * Checkout to the `master` branch
 * run `npm i` to install all dependencies
 * run `npm start` to start the app locally
-* go to `localhost:8888` to access end points.
+* go to `localhost:3000` to access end points.
 * Run all tests and coverage using `npm run test a`
 
 
