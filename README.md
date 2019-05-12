@@ -35,8 +35,8 @@ To install all dependencies
 ### `npm start` 
 To start the application locally.
 
-### `npm test`
-To run tests
+### `npm test a`
+To run all tests and coverage
 
 ### `npm run build`
 To build the app
