@@ -3,9 +3,14 @@
 
 
 
-
 # Random-Phone-Number-Generator
-A simple react application that generates a  set of phone numbers randomly.
+
+Link to hosted app: [Random-Number-Generator](https://random-phone-number-generatorr.herokuapp.com/)
+
+A simple react application that generates a  set of phone numbers randomly. 
+The maximum set of numbers that scan be generated at any point cannot exceed 10,0000.
+The application should be able to display the maximum and minimum number at any point.
+The application should be able to sort the set of random numbers in ascending or descending order.
 
 
 
@@ -25,16 +30,35 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
+ 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### App Status
+Not ready for release yet, still in development mode
+<h2>Getting Started</h2>
+Before installing, download and install Node.js.<br>
+Installation is done using the npm install command:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Install
+```bash
+npm install 
+```
+## Features
+* Users can generate random phone numbers
+* All numbers must start with 0
+* Maximum set of phone numbers generated at any given time        should not exceed 10,000
+* Users can can get the maximum and minimum random phone numbers
+* Users can sort by ascending and descending order
+* Users can search for a business
+* Users can search for a business by category
+* Users can search for a business by location
+
+
+ 
+
+
+
 
 
 
