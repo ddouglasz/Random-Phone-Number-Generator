@@ -22,6 +22,14 @@ The application should be able to sort the set of random numbers in ascending or
 * Users can search can download the generated random numbers
 
 
+###Setup
+
+* Clone the repository
+* Checkout to the `master` branch
+* run `npm i` to install all dependencies
+* run `npm start` to start the app locally
+* go to `localhost:8888` to access end points.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
