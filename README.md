@@ -1,7 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/ddouglasz/Random-Phone-Number-Generator/badge.svg?branch=master)](https://coveralls.io/github/ddouglasz/Random-Phone-Number-Generator?branch=master)
-[![Build Status](https://travis-ci.org/ddouglasz/Random-Phone-Number-Generator.svg?branch=master)](https://travis-ci.org/ddouglasz/Random-Phone-Number-Generator)
-
-
 
 # Random-Phone-Number-Generator
 
